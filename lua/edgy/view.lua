@@ -81,7 +81,7 @@ function M:show_pinned(opts)
     vim.bo[buf].bufhidden = "wipe"
     vim.bo[buf].swapfile = false
     vim.bo[buf].filetype = "edgy"
-    vim.api.nvim_buf_set_name(buf, "edgy://" .. self.title)
+    pcall(vim.api.nvim_buf_set_name, buf, "edgy://" .. self.title)
     local win = vim.api.nvim_open_win(buf, false, {
       relative = "editor",
       width = 1,
